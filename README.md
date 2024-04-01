@@ -1,5 +1,7 @@
 # Kahvilasovellus1
 
-Sovelluksen perusidea on kerätä Helsingin tietyltä kartta-alueelta kahvilat. Käyttäjät voivat tarkistaa kahvilan aukioloajat sekä kirjoittaa yritykselle arvion. Sovelluksessa on sekä peruskäyttäjiä että ylläpitäjiä.
-Jotta käyttäjä pystyy antaa kirjallisen arvion sekä tähdet kahvilalle, on hänen oltava kirjautuneena sisään nettisivuille. Sisäänkirjautuneena käyttäjä pystyy myös etsiä tiettyä kahvilaa avainsanalla.
-Ylläpitäjillä on lisäksi oikeudet hallinnoida ravintoloita, käyttäjiä ja arvioita, esimerkkinä poistaa käyttäjä tekemä arvio. Käyttäjät voivat etsiä ravintoloita annetulla sanalla kuvauskentästä. Ehkä myös mahdollisuus luokitella kahviloita esimerkiksi; ketjut, paikat joissa suolaista syötävää yms.
+Sovelluksen perusidea on kerätä Helsingin tietyltä kartta-alueelta kahvilat. Käyttäjät voivat tarkistaa kahvilan aukioloajat sekä kirjoittaa yritykselle arvion. 
+
+Jotta käyttäjä pystyy antamaan kirjallisen arvion sekä tähdet kahvilalle, hänen on oltava kirjautuneena sisään nettisivuille. Sisäänkirjautuneena käyttäjä pystyy myös etsimään tiettyä kahvilaa avainsanalla.
+
+Ylläpitäjillä on lisäksi oikeudet hallinnoida ravintoloita, käyttäjiä ja arvioita, esimerkiksi poistaa käyttäjän tekemän arvion. Käyttäjät voivat etsiä ravintoloita annetulla sanalla kuvauskentästä. Mahdollisesti myös mahdollisuus luokitella kahviloita esimerkiksi ketjuiksi, paikoiksi, joissa on suolaista syötävää yms.
