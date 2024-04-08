@@ -12,8 +12,8 @@ Sovelluksessa on tähän mennessä toiminnot luoda käyttäjätunnus sekä kirja
 Miten testata sovellusta:
 kloonaa repositorio omalle koneellesi, ja luo kansioon .env tiedosto ja määritä sen siältö seuraavanlaiseksi:
 
-DATABASE_URL=<tietokannan-paikallinen-osoite>
 SECRET_KEY=<salainen-avain>
+DB_NAME=<tietokannan-paikallinen-osoite>
 
 Seuraavaksi aktivoi virtuaaliympäristö ja asenna sovelluksen riippuvuudet komennoilla
 
