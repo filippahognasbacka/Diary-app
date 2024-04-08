@@ -10,7 +10,7 @@ Sovelluksessa on tähän mennessä toiminnot luoda käyttäjätunnus sekä kirja
 
 
 Miten testata sovellusta:
-kloonaa repositorio omalle koneellesi, ja luo kansioon .env tiedosto ja määritä sen siältö seuraavanlaiseksi:
+kloonaa repositorio omalle koneellesi, ja luo kansioon .env tiedosto ja määritä sen sisältö seuraavanlaiseksi:
 
 SECRET_KEY=<salainen-avain>
 
@@ -30,7 +30,7 @@ $ pip install -r ./requirements.txt
 
 $ flask run
 
-hox! kun itse kokeilin herjaa että __init__.py tiedoston dotenv ei ole asennettu, asensin sen näin ja sen jälkeen ajoin koodin main.py tiedostossa ja toimii. 
+hox! kun itse kokeilin herjaa että __init__.py tiedoston dotenv ei ole asennettu, asensin sen ja sen jälkeen ajoin koodin main.py tiedostossa ja toimii. 
 
-asennusohje:
+asennusohje jos dotenv ei toimi:
 ole virtuaaliympäristössä ja laita terminaaliin: sudo apt install python3-dotenv
