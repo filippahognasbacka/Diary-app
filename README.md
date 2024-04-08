@@ -24,7 +24,7 @@ $ pip install -r ./requirements.txt
 
 $ flask run
 
-hox! kun itse kokeilin herjaa että __init__.py tiedoston dotenv ei ole asennettu, asensin sen mutta virhe ei kadonnut (voi siis olla ettei toimi)
+hox! kun itse kokeilin herjaa että __init__.py tiedoston dotenv ei ole asennettu, asensin sen näin ja sen jälkeen ajoin koodin main.py tiedostossa ja toimii. 
 
 asennusohje:
-pip install python-dotenv (virtuaaliympäristössä)
+ole virtuaaliympäristössä ja laita terminaaliin: sudo apt install python3-dotenv
