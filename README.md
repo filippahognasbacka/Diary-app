@@ -25,5 +25,6 @@ $ pip install -r ./requirements.txt
 $ flask run
 
 hox! kun itse kokeilin herjaa että __init__.py tiedoston dotenv ei ole asennettu, asensin sen mutta virhe ei kadonnut (voi siis olla ettei toimi)
+
 asennusohje:
-pip install python-dotenv
+pip install python-dotenv (virtuaaliympäristössä)
