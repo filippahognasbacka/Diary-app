@@ -14,8 +14,12 @@ kloonaa repositorio omalle koneellesi, ja luo kansioon .env tiedosto ja määrit
 
 SECRET_KEY=<salainen-avain>
 
-
 DB_NAME=<tietokannan-paikallinen-osoite>
+
+Katso täältä:
+
+https://github.com/filippahognasbacka/Kahvilasovellus1/assets/153224468/d47804eb-acd1-4127-af55-430afd4f4090
+
 
 Seuraavaksi aktivoi virtuaaliympäristö ja asenna sovelluksen riippuvuudet komennoilla
 
