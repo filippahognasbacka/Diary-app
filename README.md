@@ -10,9 +10,11 @@ Sovelluksessa on tähän mennessä toiminnot luoda käyttäjätunnus sekä kirja
 
 
 Miten testata sovellusta:
+kloonaa repositorio omalle koneellesi, ja luo kansioon .env tiedosto ja määritä sen siältö seuraavanlaiseksi:
 
 DATABASE_URL=<tietokannan-paikallinen-osoite>
 SECRET_KEY=<salainen-avain>
+
 Seuraavaksi aktivoi virtuaaliympäristö ja asenna sovelluksen riippuvuudet komennoilla
 
 $ python3 -m venv venv
