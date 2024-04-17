@@ -1,8 +1,6 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
-from flask_login import login_user, login_required, logout_user, current_user
-
+from .db import get_db
 
 auth = Blueprint('auth', __name__)
 
@@ -13,25 +11,27 @@ def login():
         email = request.form.get('email')
         password = request.form.get('password')
 
-        from .models import User
+        db = get_db()
+        cursor = db.cursor()
 
-        user = User.query.filter_by(email=email).first()
+        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+        user = cursor.fetchone()
+
+        
         if user:
-            if check_password_hash(user.password, password):
+            if check_password_hash(user['password'], password):
                 flash('Logged in successfully!', category='success')
-                login_user(user, remember=True)
                 return redirect(url_for('views.home'))
             else:
                 flash('Incorrect password, try again.', category='error')
         else:
             flash('Email does not exist, create an account.', category='error')
 
-    return render_template("login.html", user=current_user)
+    return render_template("login.html")
 
 @auth.route('/logout')
-@login_required
+
 def logout():
-    logout_user()
     return redirect(url_for('auth.login'))
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
@@ -42,8 +42,11 @@ def sign_up():
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
 
+        db = get_db()
+        cursor = db.cursor()
+        cursor.execute("SELECT * FROM users WHERE email = ?", (email,))
+        user = cursor.fetchone()
 
-        user = User.query.filter_by(email=email).first()
         if user:
             flash('Email already exists.', category='error')
         elif len(email) < 4:
@@ -55,11 +58,11 @@ def sign_up():
         elif len(password1) < 7:
             flash('Password must be at least 7 characters.', category='error')
         else:
-            new_user = User(email=email, first_name=first_name, password=generate_password_hash(password1))
-            db.session.add(new_user)
-            db.session.commit()
-            login_user(new_user, remember=True)
-            flash('Account created!', category='success')
-            return redirect(url_for('views.home'))
-
-    return render_template("sign_up.html", user=current_user)
+            hashed_password = generate_password_hash(password1)
+            cursor.execute("INSERT INTO users (email, first_name, password) VALUES (?, ?, ?)",
+                           (email, first_name, hashed_password))
+            db.commit()  
+            flash('Account created! ', category='success')
+            return redirect(url_for('auth.login'))
+        
+    return render_template("sign_up.html")
