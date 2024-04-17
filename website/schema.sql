@@ -1,5 +1,6 @@
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
+
+CREATE TABLE user (
+    id INTEGER PRIMARY KEY,
     email TEXT NOT NULL,
     first_name TEXT,
     password TEXT NOT NULL
@@ -8,7 +9,7 @@ CREATE TABLE users (
 
 CREATE TABLE review (
     id INTEGER PRIMARY KEY,
-    data TEXT
+    data TEXT,
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES user (id)
 
