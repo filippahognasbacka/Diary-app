@@ -1,5 +1,7 @@
 # Kahvilasovellus1
 
+Vanha versio! Käytä master
+
 Sovelluksen perusidea on kerätä Helsingin tietyltä kartta-alueelta kahvilat. Käyttäjät voivat tarkistaa kahvilan aukioloajat sekä kirjoittaa yritykselle arvion. 
 
 Jotta käyttäjä pystyy antamaan kirjallisen arvion sekä tähdet kahvilalle, hänen on oltava kirjautuneena sisään nettisivuille. Sisäänkirjautuneena käyttäjä pystyy myös etsimään tiettyä kahvilaa avainsanalla.
