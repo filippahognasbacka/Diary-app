@@ -11,3 +11,13 @@ CREATE TABLE review (
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+CREATE TABLE reviews (
+    id SERIAL PRIMARY KEY,
+    review_text TEXT NOT NULL,
+    user_id INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+
+);
+
