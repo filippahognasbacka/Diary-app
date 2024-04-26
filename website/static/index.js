@@ -4,6 +4,6 @@ function deleteReview(reviewId) {
         body: JSON.stringify({ reviewId: reviewId }),
     })
     .then(function(_res) {
-        window.location.href = "/";
+        window.location.reload = "/";
     });
 }
