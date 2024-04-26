@@ -7,7 +7,7 @@
         <h1 align="center" style="margin-top: 100px;">Reviews</h1>
 
         <ul class="list-group list-group-flush" id="reviews">
-            {% for review in user.reviews %}
+            {% for review in reviews %}
             <li class="list-group-item">{{ review.data }}
                 <button type="button" class="close" onClick="deleteReview('{{ review.id }}')">
                     <span aria-hidden="true">&times;</span>
