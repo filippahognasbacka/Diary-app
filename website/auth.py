@@ -30,8 +30,9 @@ def login():
 
 @auth.route("/logout")
 def logout():
-    del session["user_id"]
-    return redirect("/")
+    session.pop("user_id", None) 
+    flash('You have been logged out.', category='success')
+    return redirect('/login')
 
 
 @auth.route('/sign-up', methods=['GET', 'POST'])
