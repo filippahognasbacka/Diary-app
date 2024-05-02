@@ -4,12 +4,12 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h1 align="center" style="margin-top: 100px;">Reviews</h1>
+        <h1 align="center" style="margin-top: 100px;">Entries</h1>
 
-        <ul class="list-group list-group-flush" id="reviews">
-            {% for review in reviews %}
-            <li class="list-group-item">{{ review.data }}
-                <button type="button" class="close" onClick="deleteReview('{{ review.id }}')">
+        <ul class="list-group list-group-flush" id="entries">
+            {% for entry in entries %}
+            <li class="list-group-item">{{ entry.data }}
+                <button type="button" class="close" onClick="deleteEntry('{{ entry.id }}')">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </li>
@@ -18,10 +18,10 @@
         </ul>
 
 <form method="POST">
-    <textarea name="review" id="review" class="form-control"></textarea>
+    <textarea name="entry" id="entry" class="form-control"></textarea>
     <br />
     <div align="center">
-        <button type="submit" class="btn btn-primary">Add Review</button>
+        <button type="submit" class="btn btn-primary">Add Entry</button>
     </div>
 </form>
 {% endblock %}
