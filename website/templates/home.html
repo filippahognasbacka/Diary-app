@@ -8,20 +8,24 @@
 
         <ul class="list-group list-group-flush" id="entries">
             {% for entry in entries %}
-            <li class="list-group-item">{{ entry.data }}
-                <button type="button" class="close" onClick="deleteEntry('{{ entry.id }}')">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+            <li class="list-group-item">
+                {{ entry.data }}
+                <form action="{{ url_for('views.delete_entry', entry_id=entry.id) }}" method="post" style="display: inline;"></form>
+                    <button type="submit" class="close" aria-label="Delete">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </form>
             </li>
             {% endfor %}
-
         </ul>
 
-<form method="POST">
-    <textarea name="entry" id="entry" class="form-control"></textarea>
-    <br />
-    <div align="center">
-        <button type="submit" class="btn btn-primary">Add Diary Entry</button>
+        <form method="POST">
+            <textarea name="entry" id="entry" class="form-control"></textarea>
+            <br />
+            <div align="center">
+                <button type="submit" class="btn btn-primary">Add Diary Entry</button>
+            </div>
+        </form>
     </div>
-</form>
+</div>
 {% endblock %}
