@@ -5,19 +5,20 @@ CREATE TABLE users (
     password TEXT NOT NULL
 );
 
-CREATE TABLE review (
+CREATE TABLE entry (
     id SERIAL PRIMARY KEY,
     data TEXT,
     user_id INTEGER,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
-CREATE TABLE reviews (
+CREATE TABLE entries (
     id SERIAL PRIMARY KEY,
-    review_text TEXT NOT NULL,
+    entry_text TEXT NOT NULL,
     user_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (id)
 
 );
+
 
