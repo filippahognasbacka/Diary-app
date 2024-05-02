@@ -8,32 +8,32 @@ views = Blueprint('views', __name__)
 def home():
     current_user = session.get("user_id")
     if request.method == 'POST':
-        review_text = request.form.get('review')
-        if len(review_text) < 1:
-            flash('Review is too short!', category='error')
+        entry_text = request.form.get('entry')
+        if len(entry_text) < 1:
+            flash('Entry is too short!', category='error')
         else:
-            db.session.execute(text("INSERT INTO review (data, user_id) VALUES (:review_text, :user_id)"), 
-                                {"review_text": review_text, "user_id": current_user})
+            db.session.execute(text("INSERT INTO entry (data, user_id) VALUES (:entry_text, :user_id)"), 
+                                {"entry_text": entry_text, "user_id": current_user})
             db.session.commit()
-            flash('Review added!', category='success')
+            flash('Entry added!', category='success')
 
-    reviews_query = db.session.execute(text("SELECT * FROM review"))
-    reviews = reviews_query.fetchall()
+    entries_query = db.session.execute(text("SELECT * FROM entry"))
+    entries = entries_query.fetchall()
 
-    return render_template("home.html", user=current_user, reviews=reviews)
-
-
+    return render_template("home.html", user=current_user, entries=entries)
 
 
-@views.route('/delete-review', methods=['POST'])
-def delete_review():
+
+
+@views.route('/delete-entry', methods=['POST'])
+def delete_entry():
     current_user = session["user_id"]
-    review_data = request.get_json()
-    review_id = review_data['reviewId']
-    query = db.session.execute(text("SELECT * FROM review WHERE id = :review_id"), {"review_id": review_id})
-    review = query.fetchone()
-    if review and review[3] == current_user: 
-        db.session.execute(text("DELETE FROM review WHERE id = :review_id"), {"review_id": review_id})
+    entry_data = request.get_json()
+    entry_id = entry_data['entryId']
+    query = db.session.execute(text("SELECT * FROM entry WHERE id = :entry_id"), {"entry_id": entry_id})
+    entry = query.fetchone()
+    if entry and entry[3] == current_user: 
+        db.session.execute(text("DELETE FROM entry WHERE id = :entry_id"), {"entry_id": entry_id})
         db.session.commit()
 
     return jsonify({})
