@@ -1,9 +1,9 @@
-function deleteReview(reviewId) {
-    fetch("/delete-review", {
+function deleteEntry(entryId) {
+    fetch("/delete-entry", {
         method: 'POST',
-        body: JSON.stringify({ reviewId: reviewId }),
+        body: JSON.stringify({ entryId: entryId }),
     })
     .then(function(_res) {
-        window.location.reload = "/";
+        window.location.href = "/";
     });
 }
