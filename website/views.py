@@ -1,7 +1,7 @@
-from flask import Blueprint, render_template, request, flash, jsonify, session
+from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from website.db import db
 from sqlalchemy.sql import text
-import json
+
 
 views = Blueprint('views', __name__)
 
@@ -26,11 +26,11 @@ def home():
 
 
 
-@views.route('/delete-entry', methods=['POST'])
-def delete_entry():
-    entry = json.loads(request.data) 
-    if entry and entry.get('user_id') == session.get('user_id'):
-        db.session.delete(entry)
-        db.session.commit()
+@views.route('/delete-entry/<int:entry_id>', methods=['POST'])
+def delete_entry(entry_id):
 
-    return jsonify({})
+    db.session.execute(text("DELETE FROM entry WHERE id =:entry_id"), {"entry_id": entry_id})
+    db.session.commit()
+
+    flash('Entry deleted', category='success')
+    return redirect(url_for('views.home'))
