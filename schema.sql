@@ -24,7 +24,7 @@ CREATE TABLE entries (
 
 CREATE TABLE entry_notes (
     id SERIAL PRIMARY KEY,
-    title TEXT NOT NULL,
+    title TEXT NOT NULL DEFAULT '',
     content TEXT NOT NULL,
     entry_id INTEGER,
     user_id INTEGER,
