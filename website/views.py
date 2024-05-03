@@ -53,10 +53,20 @@ def add_note(entry_id):
     if len(note_text) < 1:
             flash('Note is too short!', category='error')
     else:
-        db.session.execute(text("INSERT INTO entry_notes (note_text, entry_id, user_id) VALUES (:note_text, :entry_id, :user_id)"), 
-                                {"note_text": note_text, "entry_id": entry_id, "user_id": current_user})
+        db.session.execute(text("INSERT INTO entry_notes (content, entry_id, user_id) VALUES (:content, :entry_id, :user_id)"), 
+                                {"content": note_text, "entry_id": entry_id, "user_id": current_user})
         db.session.commit()
         flash('Note added!', category='success')
 
         
     return redirect(url_for('views.entry', entry_id=entry_id))
+
+
+@views.route('/delete-note/<int:note_id>', methods=['POST'])
+def delete_note(note_id):
+    db.session.execute(text("DELETE FROM entry_notes WHERE id = :note_id"), {"note_id": note_id})
+    db.session.commit()
+
+    flash('Note deleted', category='success')
+    
+    return redirect(request.referrer)
