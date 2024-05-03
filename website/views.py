@@ -39,4 +39,21 @@ def delete_entry(entry_id):
 @views.route('/entry/<int:entry_id>')
 def entry(entry_id):
     entry = db.session.execute(text("SELECT * FROM entry WHERE id = :entry_id"), {"entry_id": entry_id}).fetchone()
-    return render_template("entry.html", entry=entry)             
+    return render_template("entry.html", entry=entry, entry_id=entry_id)
+
+
+@views.route('/add-note/<int:entry_id>', methods=['POST'])
+def add_note(entry_id):
+    note_text = request.form.get('note_text')
+    current_user = session.get("user_id")
+
+    if len(note_text) < 1:
+            flash('Note is too short!', category='error')
+    else:
+        db.session.execute(text("INSERT INTO entry_notes (note_text, entry_id, user_id) VALUES (:note_text, :entry_id, :user_id)"), 
+                                {"note_text": note_text, "entry_id": entry_id, "user_id": current_user})
+        db.session.commit()
+        flash('Note added!', category='success')
+
+        
+    return redirect(url_for('views.entry', entry_id=entry_id))
