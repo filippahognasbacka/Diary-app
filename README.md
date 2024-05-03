@@ -15,7 +15,7 @@ Toiminnallisuudet:
 -Kirjautua ulos sovelluksesta.
 
 
-
+<br />
 
 Miten testata sovellusta:
 
