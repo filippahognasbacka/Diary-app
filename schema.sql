@@ -29,7 +29,7 @@ CREATE TABLE entry_notes (
     entry_id INTEGER,
     user_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (entry_id) REFERENCES entry (id),
+    FOREIGN KEY (entry_id) REFERENCES entry (id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
 
