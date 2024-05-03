@@ -4,12 +4,11 @@
 
 <div class="row">
     <div class="col-md-4">
-        <h1 align="center" style="margin-top: 100px;">Entries</h1>
-
+        <h1 align="center" style="margin-top: 100px;">Entry titles</h1>
         <ul class="list-group list-group-flush" id="entries">
             {% for entry in entries %}
             <li class="list-group-item">
-                {{ entry.data }}
+                <a href="{{ url_for('views.entry', entry_id=entry.id) }}">{{ entry.data}}</a>
                 <form action="{{ url_for('views.delete_entry', entry_id=entry.id) }}" method="post" style="display: inline;">
                     <button type="submit" class="close" aria-label="Delete">
                         <span aria-hidden="true">&times;</span>
