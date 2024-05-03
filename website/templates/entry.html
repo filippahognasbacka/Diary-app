@@ -1,2 +1,28 @@
 {% extends "base.html" %}
 {% block title %}Entry{% endblock %}
+
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <h1 style="margin-top: 30px; font-size: 25px;">{{ entry.data }}</h1>
+        <form method="POST" action="{{ url_for('views.add_note', entry_id=entry_id) }}">
+            <textarea name="note_text" id="note_text" class="form-control" style="height: 300px;"></textarea>
+            <br />
+            <div align="center">
+                <button type="submit" class="btn btn-primary">Save note</button>
+            </div>
+        </form>
+        <br>
+        <ul>
+            {% for note in entry_notes %}
+            <li>{{ note.note_text }} 
+                <form action="{{ url_for('views.delete_note', note_id=note.id) }}" method="post" style="display: inline;">
+                    <button type="submit" class="btn btn-link" style="padding: 0px;">Delete</button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
