@@ -34,3 +34,9 @@ def delete_entry(entry_id):
 
     flash('Entry deleted', category='success')
     return redirect(url_for('views.home'))
+
+
+@views.route('/entry/<int:entry_id>')
+def entry(entry_id):
+    entry = db.session.execute(text("SELECT * FROM entry WHERE id = :entry_id"), {"entry_id": entry_id}).fetchone()
+    return render_template("entry.html", entry=entry)             
