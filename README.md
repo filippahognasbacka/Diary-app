@@ -2,10 +2,13 @@ Käytä tätä versiota!
 
 Sovelluksen idea: Päiväkirja
 
-Uusi käyttäjä pystyy luoda käyttäjän ja kirjautua sisään. Sovelluksessa sisällä käyttäjä pystyy lisätä päiväkirjan päivän aiheen (esimerkiksi päivämäärän) otsikoksi. Sen jälkeen aihetta pystyy painaa ja seuraavalla sivulla on mahdollista kirjoittaa pidempi julkaisu päiväkirjaan.
+Toiminnallisuudet:
 
-Kotisivulla on myös mahdollista poistaa päiväkirjan julkaisu sekä kirjautua ulos sovelluksesta.
-
+-Uusi käyttäjä pystyy luoda käyttäjän ja kirjautua sisään.
+-Sovelluksessa sisällä käyttäjä pystyy lisätä päiväkirjan päivän aiheen (esimerkiksi päivämäärän) otsikoksi
+-Otsikkoa pystyy painaa ja seuraavalla sivulla on mahdollista kirjoittaa pidempi julkaisu päiväkirjaan
+-Kotisivulla on myös mahdollista poistaa päiväkirjan julkaisu
+-Kirjautua ulos sovelluksesta.
 
 
 
