@@ -22,3 +22,12 @@ CREATE TABLE entries (
 );
 
 
+CREATE TABLE entry_notes (
+    id SERIAL PRIMARY KEY,
+    title TEXT NOT NULL,
+    content TEXT NOT NULL,
+    user_id INTEGER,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id)
+
+);
