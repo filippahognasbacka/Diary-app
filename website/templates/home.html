@@ -15,9 +15,21 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </form>
+
+
+                <ul>
+                    {% for note in entry.notes %}
+                    <li>{{ note.note_text }} 
+                        <form action="{{ url_for('views.delete_note', note_id=note.id) }}" method="post" style="display: inline;">
+                            <button type="submit" class="btn btn-link" style="padding: 0px;">Delete</button>
+                        </form>
+                    </li>
+                    {% endfor %}
+                </ul>
             </li>
             {% endfor %}
         </ul>
+
 
         <form method="POST">
             <textarea name="entry" id="entry" class="form-control"></textarea>
