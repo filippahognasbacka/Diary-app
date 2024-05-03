@@ -26,8 +26,10 @@ CREATE TABLE entry_notes (
     id SERIAL PRIMARY KEY,
     title TEXT NOT NULL,
     content TEXT NOT NULL,
+    entry_id INTEGER,
     user_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (entry_id) REFERENCES entry (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
-
 );
+
