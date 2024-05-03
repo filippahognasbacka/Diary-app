@@ -29,7 +29,8 @@ def home():
 @views.route('/delete-entry/<int:entry_id>', methods=['POST'])
 def delete_entry(entry_id):
 
-    db.session.execute(text("DELETE FROM entry WHERE id =:entry_id"), {"entry_id": entry_id})
+    db.session.execute(text("DELETE FROM entry_notes WHERE id =:entry_id"), {"entry_id": entry_id})
+    db.session.execute(text("DELETE FROM entry WHERE id = :entry_id"), {"entry_id": entry_id})
     db.session.commit()
 
     flash('Entry deleted', category='success')
@@ -39,7 +40,9 @@ def delete_entry(entry_id):
 @views.route('/entry/<int:entry_id>')
 def entry(entry_id):
     entry = db.session.execute(text("SELECT * FROM entry WHERE id = :entry_id"), {"entry_id": entry_id}).fetchone()
-    return render_template("entry.html", entry=entry, entry_id=entry_id)
+    entry_notes = db.session.execute(text("SELECT * FROM entry_notes WHERE entry_id = :entry_id"), {"entry_id": entry_id}).fetchall()
+    
+    return render_template("entry.html", entry=entry, entry_notes=entry_notes, entry_id=entry_id)
 
 
 @views.route('/add-note/<int:entry_id>', methods=['POST'])
