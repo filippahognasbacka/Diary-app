@@ -3,3 +3,7 @@
     font-weight: 400;
     font-style: normal;
   }
+
+body.custom-background {
+  background-color: #8b3737;
+}
