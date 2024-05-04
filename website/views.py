@@ -82,3 +82,8 @@ def delete_note(note_id):
     flash('Note deleted', category='success')
     
     return redirect(request.referrer)
+
+
+@views.route('/user')
+def user():
+    return render_template('user.html')
