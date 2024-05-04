@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, session, url_for
+from flask import Blueprint, render_template, request, flash, redirect, session, url_for, request
 from website.db import db
 from sqlalchemy.sql import text
 
@@ -51,12 +51,23 @@ def add_note(entry_id):
     current_user = session.get("user_id")
 
     if len(note_text) < 1:
-            flash('Note is too short!', category='error')
-    else:
-        db.session.execute(text("INSERT INTO entry_notes (content, entry_id, user_id) VALUES (:content, :entry_id, :user_id)"), 
-                                {"content": note_text, "entry_id": entry_id, "user_id": current_user})
+        flash('Note is too short!', category='error')
+
+    file = request.files.get('file')
+    filename = file.filename if file else None
+
+    if file and filename:
+        file_data = file.read()
+        db.session.execute(text("INSERT INTO pictures_files (filename, file_data, entry_note_id, user_id) VALUES (:filename, :file_data, :entry_note_id, :user_id)"),
+                           {"filename":filename, "file_data":file_data, "entry_note_id":entry_id, "user_id":current_user})
         db.session.commit()
-        flash('Note added!', category='success')
+
+
+
+    db.session.execute(text("INSERT INTO entry_notes (content, entry_id, user_id) VALUES (:content, :entry_id, :user_id)"), 
+                            {"content": note_text, "entry_id": entry_id, "user_id": current_user})
+    db.session.commit()
+    flash('Note added!', category='success')
 
         
     return redirect(url_for('views.entry', entry_id=entry_id))
