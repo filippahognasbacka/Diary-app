@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for, request
 from website.db import db
 from sqlalchemy.sql import text
-from flask_login import current_user
+
 
 
 views = Blueprint('views', __name__)
