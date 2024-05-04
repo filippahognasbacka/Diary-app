@@ -50,8 +50,6 @@ def add_note(entry_id):
     note_text = request.form.get('note_text')
     current_user = session.get("user_id")
 
-    if len(note_text) < 1:
-        flash('Note is too short!', category='error')
 
     file = request.files.get('file')
     filename = file.filename if file else None
