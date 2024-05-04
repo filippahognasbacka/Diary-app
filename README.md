@@ -12,6 +12,8 @@ Toiminnallisuudet:
 
 -Kotisivulla on myös mahdollista poistaa päiväkirjan julkaisu
 
+-Entry sivulla on mahdollista myös poistaa kirjoitettu note
+
 -Kirjautua ulos sovelluksesta.
 
 
