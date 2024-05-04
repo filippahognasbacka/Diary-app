@@ -58,8 +58,8 @@ def add_note(entry_id):
 
     if file and filename:
         file_data = file.read()
-        db.session.execute(text("INSERT INTO pictures_files (filename, file_data, entry_note_id, user_id) VALUES (:filename, :file_data, :entry_note_id, :user_id)"),
-                           {"filename":filename, "file_data":file_data, "entry_note_id":entry_id, "user_id":current_user})
+        db.session.execute(text("INSERT INTO pictures_files (filename, file_data, user_id) VALUES (:filename, :file_data, :user_id)"),
+                           {"filename":filename, "file_data":file_data, "user_id":current_user})
         db.session.commit()
 
 
