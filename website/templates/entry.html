@@ -16,9 +16,9 @@
         <br>
         <ul>
             {% for note in entry_notes %}
-            <li>{{ note.content }} 
+            <li>{{ note.content }} </li>
                 <form action="{{ url_for('views.delete_note', note_id=note.id) }}" method="post" style="display: inline;">
-                    <button type="submit" class="btn btn-link" style="padding: 0px;">Delete</button>
+                    <button type="submit" class="btn btn-primary" style="padding: 0px;">Delete Note</button>
                 </form>
             </li>
             {% endfor %}
