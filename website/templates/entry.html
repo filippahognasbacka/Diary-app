@@ -8,14 +8,18 @@
         <h1 style="margin-top: 30px; font-size: 25px;">{{ entry.data }}</h1>
 
         {% for note in entry_notes %}
-        <div>
-            <p>{{ note.content }}</p>
-            {% if note.picture %}
-            <img src="{{ url_for('static', filename='uploads/' + note.picture.filename) }}" alt="Note Picture">
+        <div class="note-container">
+            <div class="note-content">
+                <p>{{ note.content }}</p>
+            </div>
+            {% if note.filename %}
+            <div class="note-image">
+                <img src="{{ url_for('static', filename='uploads/' + note.filename) }}" alt="Note Picture">
+            </div>
             {% endif %}
         </div>
         {% endfor %}
-        
+
         <form method="POST" action="{{ url_for('views.add_note', entry_id=entry_id) }}" enctype="multipart/form-data">
             <textarea name="note_text" id="note_text" class="form-control" style="height: 300px;"></textarea>
             <br>
