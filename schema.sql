@@ -27,7 +27,7 @@ CREATE TABLE entry_notes (
     title TEXT NOT NULL DEFAULT '',
     content TEXT NOT NULL,
     entry_id INTEGER,
-    entry_note_id INTEGER,
+    filename TEXT,
     user_id INTEGER,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (entry_id) REFERENCES entry (id) ON DELETE CASCADE,
