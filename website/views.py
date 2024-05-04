@@ -42,7 +42,10 @@ def entry(entry_id):
     entry = db.session.execute(text("SELECT * FROM entry WHERE id = :entry_id"), {"entry_id": entry_id}).fetchone()
     entry_notes = db.session.execute(text("SELECT * FROM entry_notes WHERE entry_id = :entry_id"), {"entry_id": entry_id}).fetchall()
     
-    return render_template("entry.html", entry=entry, entry_notes=entry_notes, entry_id=entry_id)
+    current_user = session.get("user_id")
+    uploaded_file = db.session.execute(text("SELECT filename FROM pictures_files WHERE user_id = :current_user ORDER BY id DESC LIMIT 1"), {"current_user": current_user}).scalar()
+    
+    return render_template("entry.html", entry=entry, entry_notes=entry_notes, entry_id=entry_id, uploaded_file=uploaded_file)
 
 
 @views.route('/add-note/<int:entry_id>', methods=['POST'])
