@@ -60,7 +60,8 @@ def add_note(entry_id):
 
     if file:
         filename = file.filename
-        file_path = os.path.join('static/uploads', filename)
+        file_path = os.path.join('static', 'css', 'uploads', filename)
+
         file.save(file_path)
 
 
