@@ -5,5 +5,18 @@
 <div class="container" style="margin-top: 50px;">
     <h1 style="font-size: 25px;">Hi {{ first_name}}!</h1>
 
+    <form action="{{ url_for('views.user') }}" method="GET">
+        <input type="text" name="search_query" placeholder="Search your entries">
+        <button type="submit">Search</button>
+    </form>
+    <br>
+    <h2>All your entries:</h2>
+    <ul>
+        {% for entry in search_results %}
+            <li><a href="{{ url_for('views.entry', entry_id=entry.id) }}">{{ entry.data }}</a></li>
+        {% else %}
+            <li>No results found</li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}
