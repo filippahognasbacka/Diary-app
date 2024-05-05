@@ -45,3 +45,5 @@ CREATE TABLE pictures_files (
     FOREIGN KEY (entry_note_id) REFERENCES entry_notes (id) ON DELETE CASCADE,
     FOREIGN KEY (user_id) REFERENCES users (id)
 );
+
+
