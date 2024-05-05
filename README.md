@@ -31,9 +31,9 @@ Miten testata sovellusta:
 
 Kloonaa repositorio omalle koneellesi. Luo kansioon .env tiedosto ja määritä sen sisältö seuraavanlaiseksi:
 
-SECRET_KEY=<salainen-avain>
+SECRET_KEY= <salainen-avain>
 
-DB_NAME=<tietokannan-paikallinen-osoite>
+DB_NAME= <tietokannan-paikallinen-osoite>
 
 
 Seuraavaksi aktivoi virtuaaliympäristö ja asenna sovelluksen riippuvuudet komennoilla
