@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, flash, redirect, session, url_for, request
+from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from website.db import db
 from sqlalchemy.sql import text
 
@@ -93,5 +93,13 @@ def user():
 
     if user_id:
         first_name = db.session.execute(text("SELECT first_name FROM users WHERE id = :user_id"), {"user_id": user_id}).scalar()
-        return render_template('user.html', first_name=first_name)
+
+        search_query = request.args.get('search_query', '')
+
+        search_results = db.session.execute(
+            text("SELECT * FROM entry WHERE user_id = :user_id AND data ILIKE :search_query"),
+            {"user_id": user_id, "search_query": f"%{search_query}%"}).fetchall()
+
+        return render_template('user.html', first_name=first_name, search_results=search_results)
+
     
