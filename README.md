@@ -18,7 +18,11 @@ Toiminnallisuudet:
 
 -Kirjautua ulos sovelluksesta.
 
+<br />
 
+Disclaimer:
+
+Valitettavasti en saanut toimimaan mahdollisuutta lisätä kuvaa/tiedostoa kun käyttäjä kirjoittaa Noten. Kuvan tallennuksessa (views.py / add_note funktiossa on jotain pielessä), enkä valitettavasti osannut korjata virhettä vaikka katsoinkin sitä kauan. Tietokantataulussa (pictures_files) ei pitäisi olla ongelmaa mutta arvelen polussa olevan jotain mättää. Tarkoitus oli siis saada kuvat ladattua static sisällä olevaan kansioon (uploads). Toivottavasti tämä on OK.
 
 
 <br />
