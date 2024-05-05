@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, flash, redirect, session, url_for
 from website.db import db
 from sqlalchemy.sql import text
-
+import os
 
 
 views = Blueprint('views', __name__)
@@ -56,9 +56,14 @@ def add_note(entry_id):
 
 
     file = request.files.get('file')
-    filename = file.filename if file else None
+    filename = None
 
-    if file and filename:
+    if file:
+        filename = file.filename
+        file_path = os.path.join('static/uploads', filename)
+        file.save(file_path)
+
+
         file_data = file.read()
         db.session.execute(text("INSERT INTO pictures_files (filename, file_data, user_id) VALUES (:filename, :file_data, :user_id)"),
                            {"filename":filename, "file_data":file_data, "user_id":current_user})
