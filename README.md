@@ -14,6 +14,8 @@ Toiminnallisuudet:
 
 -Entry sivulla on mahdollista myös poistaa kirjoitettu note
 
+-User sivulla on mahdollista etsiä kirjoitetuista julkaisuista ja sen kautta päästä niihin
+
 -Kirjautua ulos sovelluksesta.
 
 
